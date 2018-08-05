@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>环保宣传首页</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="ppt.js"></script>
+	<script type="text/javascript" src="ppt2.js"></script>
+	<script type="text/javascript" src="js/jquery.onepage-scroll.js"></script>
+	<link rel="stylesheet" type="text/css" href="main.css">	
+	<link href="css/video-js.css" rel="stylesheet" type="text/css">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="onepage-scroll.css">
+	<script src="video.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		var h = $(window).height();
+		$(".frame_1,.frame_2,.frame_3,.frame_4,.frame_5,.frame_6").css("height",h+"px");
+		babyzone.scroll(4,"cnt","list","banner");
+		babyzone2.scroll(4,"cnt2","list2","banner2");
+		$("#list > li").text("");
+		$("#list2 > li").text("");
+
+		$(".contain").onepage_scroll({
+			sectionContainer: ".pson",
+			easing: "ease-in-out",
+			animationTime: 1000,
+			pagination: true,
+			loop: true
+		})
+
+		var video_1 = $("#video_1")[0];
+		var video_2 = $("#video_2")[0];
+		var video_3 = $("#video_3")[0];
+		var audio = $("audio")[0];
+
+		$("#chose_1").click(function(){
+			$("#vd_1").show();
+			$("#vd_2").hide();
+			$("#vd_3").hide();
+			video_2.pause();
+			video_3.pause();
+		});
+		$("#chose_2").click(function(){
+			$("#vd_2").show();
+			$("#vd_1").hide();
+			$("#vd_3").hide();
+			video_1.pause();
+			video_3.pause();
+		});
+		$("#chose_3").click(function(){
+			$("#vd_3").show();
+			$("#vd_1").hide();
+			$("#vd_2").hide();
+			video_1.pause();
+			video_2.pause();
+		});
+
+		$("#vd_1").click(function(){
+			audio.pause();
+		})
+
+		$(".pic").click(function(){
+			if(audio.paused){
+				audio.play();
+			}else{
+				audio.pause();
+			}
+		})	
+	})
+		function sendi(){
+			var name = $("#name").val();
+			var email = $("#email").val();
+			var mesg = $("#mesg").val();
+			if(name == ""){
+				alert("请输入姓名~");
+			}else if(email == ""){
+				alert("请输入邮箱~");
+			}else if(mesg == ""){
+				alert("请输入内容~");
+			}else{
+				alert("提交成功~");
+				$("#name").val("");
+				$("#email").val("");
+				$("#mesg").val("");
+			}
+		}
+		function jump_1(){
+			window.location.href="http://saf.aoxuely.cn/discuz/forum.php?mod=viewthread&tid=27&extra=";
+		}
+		function jump_2(){
+			window.location.href="http://saf.aoxuely.cn/discuz/forum.php?mod=viewthread&tid=29&extra=";
+		}
+		function jump_3(){
+			window.location.href="http://saf.aoxuely.cn/discuz/forum.php?mod=viewthread&tid=30&extra=";
+		}
+	</script>
+</head>
+<body>
+	<div class="head" id="head">
+		<div class="header"></div>
+			<div class="logo"><img src="img/logo.png"/></div>
+			<div class="title">
+				<a href="#" class="catalog">成员介绍</a>
+				<a href="#" class="catalog">论坛简介</a>
+				<a href="#" class="catalog">视频介绍</a>
+				<a href="#" class="catalog">环保资讯</a>
+				<a href="#" class="catalog">信息反馈</a>
+			</div>
+			<div class="ad">
+				<audio id="ad" preload="auto" controls autoplay loop style="display:none">
+				    <source src="vd/ad.wma" />
+				    <source src="vd/ad.mp3" />
+				    <source src="vd/ad.ogg" />
+				</audio>
+			</div>
+			<div class="info">
+				<a href="http://saf.aoxuely.cn/discuz/portal.php" class="catalog">登陆</a>
+				<a href="http://saf.aoxuely.cn/discuz/member.php?mod=register" class="catalog">注册</a>
+			</div>			
+	</div>
+<div class="contain">	
+	<div class="pson" id="homepage"></div>
+	<div class="frame_1">
+		<div class="bg">
+			<img src="img/bg.jpg" class="bg_img" />
+			<div class="opa"></div>
+		</div>
+		
+		<div class="bodyer">
+			<span style="font-size: 22px">EVERYTHING IS OK</span>
+			<div class="sign">
+				保护环境&nbsp人人有责
+			</div>
+			<span class="intro">
+				环境是人类生存和发展的基本前提，环境为我们生存和发展提供了必须的资源和条件。<br/>
+				保护环境，减轻环境污染，遏制生态恶化趋势，成为政府社会管理的重要任务。
+			</span>
+		</div>
+		<div class="btn_d">
+			<a href="http://saf.aoxuely.cn/discuz/portal.php" class="btn"><strong>进入论坛</strong></a>
+		</div>
+		
+	</div>
+	<div class="pson"></div>
+	<div class="frame_2">
+		<div class="head_2">
+			<span>我们在行动</span><hr/>
+			<span>EMPLOYEE SHARE</span>
+		</div>
+		<div class="bodyer_2">
+			<div class="pic">
+				<img src="img/role.jpg" />
+			</div>
+			<a href="#" id="banner" style="display: none"></a>
+			<ul id="list" class="cn"></ul>
+			<div class="cnt" id="cnt">
+				<a href="javascript:void(0)">
+					<h1>建站历程</h1>
+					<span>2016年3月开始建站<br/>2016年4月宣传页面完工，开始建立论坛<br/>2016年4月中旬发布网站<br/>To be continued...
+					</span>
+				</a>
+				<a href="javascript:void(0)">
+					<h1>小组成员</h1>
+					<span>檀军华：论坛搭建<br/>宋丰可：宣传页面<br/>范晓涵：网站架构<br/>林耀慧：UI设计
+					</span>
+				</a>
+				<a href="javascript:void(0)">
+					<h1>环保希冀</h1>
+					<span>我们呼吁每个人加入环保行动<br/>我们只有一个地球<br/>我们需要大自然<br/>大自然却未必需要我们
+					</span>
+				</a>
+				<a href="javascript:void(0)">
+					<h1>加入我们</h1>
+					<span>QQ群：295414453<br/>邮箱：280971752@qq.com<br/>联系电话：13382766967
+					</span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="pson"></div>
+	<div class="frame_3">
+		<div class="head_3">
+			<span>论坛简介</span><hr/>
+			<span>EVERYTHING IS OK</span>
+		</div>
+		<div class="bodyer_3">
+			<a href="#" id="banner2" style="display: none"></a>
+			<ul id="list2" class="cn"></ul>
+			<div id="cnt2" class="cnt">
+				<a href="javascript:void(0)">
+					<h1>关于论坛</h1>
+					<span>我们的论坛集门户，帖子，签到，任务于一身，为各位环保大使提供一个开放且自由的交流平台。在论坛里，大家可以畅所欲言，为地球环保行动献出自己的一份努力。
+					</span>
+				</a>
+				<a href="javascript:void(0)">
+					<h1>论坛任务</h1>
+					<span>我们会定期在论坛任务栏发布绿色环保行动任务，希望各位成员积极参与，提出你们的意见和想法，同时根据各位上传截图证明给与奖励。
+					</span>
+				</a>
+				<a href="javascript:void(0)">
+					<h1>发帖内容</h1>
+					<span>我们支持所有的绿色宣传贴，同时杜绝广告和一切不良信息，全力为大家打造一个绿色积极的论坛。
+					</span>
+				</a>
+				<a href="javascript:void(0)">
+					<h1>论坛版主</h1>
+					<span>论坛将会提供管理员职位，职位越大，权利越大，责任越大。<br/>有志成为版主的同道中人请在群里联系管理员。
+					</span>
+				</a>
+			</div>
+			<div class="pic" id="pic2">
+				<img src="img/role2.png" />
+			</div>
+		</div>		
+	</div>
+	<div class="pson"></div>
+	<div class="frame_4">
+		<div class="head_4">
+			<span>环保公益视频</span><hr>
+		</div>	
+		<div id="vd_1" class="vd">
+			<video id="video_1" class="video-js vjs-default-skin  vjs-big-play-centered" controls preload="none" width="100%" height="100%"
+			      poster="img/bg_1.jpg" data-setup="{}" preload="none">
+			    <source src="vd/1.mp4" type='video/mp4' />
+			    <track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track>
+			    <track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track>
+			</video>
+		</div>
+		<div id="vd_2" class="vd" style="display:none">
+			<video id="video_2" class="video-js vjs-default-skin  vjs-big-play-centered" controls preload="none" width="100%" height="100%"
+			      poster="img/bg_2.jpg" data-setup="{}" preload="none">
+			    <source src="vd/2.mp4" type='video/mp4' />
+			    <track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track>
+			    <track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track>
+			</video>
+		</div>
+		<div id="vd_3" class="vd" style="display:none">
+			<video id="video_3" class="video-js vjs-default-skin  vjs-big-play-centered" controls preload="none" width="100%" height="100%"
+			      poster="img/bg_3.jpg" data-setup="{}" preload="none">
+			    <source src="vd/3.mp4" type='video/mp4' />
+			    <track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track>
+			    <track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track>
+			</video>
+		</div>
+		<div class="item">
+			<div class="chose" id="chose_1">
+				<img src="img/bg_1.jpg" />
+				<span>大自然在说话<br/>-雨林</span>
+			</div>
+			<div class="chose" id="chose_2">
+				<img src="img/bg_2.jpg" />
+				<span>大自然在说话<br/>-海洋</span>
+			</div>
+			<div class="chose" id="chose_3">
+				<img src="img/bg_3.jpg" />
+				<span>大自然在说话<br/>-水</span>
+			</div>
+		</div>
+	</div>
+	<div class="pson"></div>
+	<div class="frame_6">
+		<h1>环保资讯</h1>
+		<div class="team">
+			<div class="thd" onclick="jump_1()">
+				<img src="img/th1.jpg">
+				<div class="content">
+					<h5><STRONG>大自然之美</STRONG></h5>
+					<span>大自然千变万化的美，无穷无尽。她粲然一下，宛如天真妙龄的少女；沉鱼落雁之丽，玉洁冰清之纯，谁敢相媲？这便是令人销魂的美。他岿然一惧，好似一位威风凛凛的将军；排山倒海之势，雷霆万钧之力，谁敢想撼？这便是令人仰慕的美。</span>
+				</div>
+				<div class="tool">
+					<div class="tool_1">
+						<span class="glyphicon glyphicon-heart-empty"></span><span>456</span>
+					</div>
+					<div class="tool_2">
+						<span class="glyphicon glyphicon-comment"></span><span>159</span>
+					</div>
+					<div class="tool_3">
+						<span class="glyphicon glyphicon-share-alt"></span><span>23</span>
+					</div>
+				</div>
+			</div>
+			<div class="thd" onclick="jump_2()">
+				<img src="img/th2.jpg">
+				<div class="content">
+					<h5><STRONG>环境污染危害</STRONG></h5>
+					<span>环境污染是指由于对生态系统有害的物质进入环境后对生态 系统造成的干扰和损害的现象，有害物质或有害 因子进入环境并在环境中发生扩散、迁移、转化，并跟生态体统的诸要素发 生作用，使生态系统的结构与功能发生变化，对人类以及其它生物的生存和 发展产生不利影响。</span>
+				</div>
+				<div class="tool">
+					<div class="tool_1">
+						<span class="glyphicon glyphicon-heart-empty"></span><span>558</span>
+					</div>
+					<div class="tool_2">
+						<span class="glyphicon glyphicon-comment"></span><span>146</span>
+					</div>
+					<div class="tool_3">
+						<span class="glyphicon glyphicon-share-alt"></span><span>18</span>
+					</div>
+				</div>
+			</div>
+			<div class="thd" onclick="jump_3()">
+				<img src="img/th3.jpg">
+				<div class="content">
+					<h5><STRONG>地球健康论--马云</STRONG></h5>
+					<span>马云表示：今天，我们不应该再争论谁对谁错，谁应该承担更多责任！今天，我们应该讨论的是谁是更好的办法来分享。如果地球病了，没有人会健康。</span>
+				</div>
+				<div class="tool">
+					<div class="tool_1">
+						<span class="glyphicon glyphicon-heart-empty"></span><span>965</span>
+					</div>
+					<div class="tool_2">
+						<span class="glyphicon glyphicon-comment"></span><span>254</span>
+					</div>
+					<div class="tool_3">
+						<span class="glyphicon glyphicon-share-alt"></span><span>56</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="pson"></div>
+	<div class="frame_5">
+		<div class="admise">
+			<div class="offer">
+				<h1>意见反馈</h1>
+				<span>We will open a number of dedicated lines,dedicated to provide you with convenient travel
+				,any relevent issues can call the advisory.</span>
+			</div>
+			<div class="information">
+				<span class="hd">GIVE US A CALL</span>
+				<div class="theme">
+					<span class="glyphicon glyphicon-map-marker"></span>
+					<span class="ctn">Shan Xi, Xi AN,Xi'Dian university</span>
+				</div>
+				<div class="theme">
+					<span class="glyphicon glyphicon-home"></span>
+					<span class="ctn">http://www.xidian.com</span>
+				</div>
+				<div class="theme">
+					<span class="glyphicon glyphicon-earphone"></span>
+					<span class="ctn">13382766967</span>
+				</div>
+				<div class="theme">
+					<span class="glyphicon glyphicon-envelope"></span>
+					<span class="ctn">280971752@qq.com</span>
+				</div>
+				<div class="theme">
+					<span class="glyphicon glyphicon-credit-card"></span>
+					<span class="ctn">710000</span>
+				</div>
+			</div>
+			<div class="claim">
+				<span class="hd">GIVE US A MESSAGE</span>
+				<div class="fl">
+					<input id="name" type="text" class="control" require="required" placeholder="Your Name"/>
+				</div>
+				<div class="fl">
+					<input id="email" type="text" class="control" require="required" placeholder="Your E-mail"/>
+				</div>
+				<textarea id="mesg" class="fl" style="height: 80px" placeholder="Your Message"></textarea>
+				</div>
+				<a href="javascript:;" onclick="sendi()" class="send" id="send">Send</a>
+			</div>
+		<div class="footer">
+			<img src="img/foot.jpg" class="bg_img" />
+			<div class="opa" id="opa_foot"></div>
+			<div class="ima">
+				<span>
+					Set to home page|Add to the collection|The home page and regulations
+				</span>
+				<span>
+					Copyright:2005-2015 NanShan tourism copyright,and all rights reserved.
+				</span>
+				<span>
+					Address:ShanXi province Xi'an City Xi'Dian University
+				</span>
+				<span>
+					code:710000 E-mail:280971752@qq.com
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
